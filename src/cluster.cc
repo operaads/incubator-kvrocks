@@ -500,7 +500,7 @@ std::string Cluster::GenNodesDescription() {
 
 Status Cluster::ParseClusterNodes(const std::string &nodes_str, ClusterNodes *nodes,
                                   std::unordered_map<int, std::string> *slots_nodes) {
-  std::vector<std::string> nodes_info = Util::Split(nodes_str, "\n");
+  std::vector<std::string> nodes_info = Util::Split(nodes_str, "|");
   if (nodes_info.size() == 0) {
     return Status(Status::ClusterInvalidInfo, "Invalid cluster nodes info");
   }
